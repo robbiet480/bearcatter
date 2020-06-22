@@ -105,39 +105,39 @@ func testDecodeRecordingCase(path string, expected WavPlayerEntry) func(t *testi
 			t.Fatalf("error when parsing file: %v", parsedErr)
 		}
 
-		assert.Equal(parsed.File, expected.FileName, "File names should be equal")
+		assert.Equal(expected.FileName, parsed.File, "File names should be equal")
 
 		assert.Equal(parsed.Duration, expected.Duration.Duration, "Duration should be equal")
 
-		assert.Equal(parsed.Public.Product, expected.Product, "Products (public) should be equal")
+		assert.Equal(expected.Product, parsed.Public.Product, "Products (public) should be equal")
 
 		assert.Equal(parsed.Public.Timestamp, &expected.DateAndTime.Time, "Timestamps (public) should be equal")
 
-		assert.Equal(parsed.Private.System.Type, expected.SystemType, "System types (private) should be equal")
+		assert.Equal(expected.SystemType, parsed.Private.System.Type, "System types (private) should be equal")
 
-		assert.Equal(parsed.Private.Frequency, expected.Frequency, "Frequencies (private) should be equal")
+		assert.Equal(expected.Frequency, parsed.Private.Frequency, "Frequencies (private) should be equal")
 
-		assert.Equal(parsed.Public.FavoriteListName, expected.FavoriteName, "Favorite List Names (public) should be equal")
-		assert.Equal(parsed.Private.FavoriteList.Name, expected.FavoriteName, "Favorite List Names (private) should be equal")
+		assert.Equal(expected.FavoriteName, parsed.Public.FavoriteListName, "Favorite List Names (public) should be equal")
+		assert.Equal(expected.FavoriteName, parsed.Private.FavoriteList.Name, "Favorite List Names (private) should be equal")
 
-		assert.Equal(parsed.Public.System, expected.SystemName, "System Names (public) should be equal")
-		assert.Equal(parsed.Private.System.Name, expected.SystemName, "System Names (private) should be equal")
+		assert.Equal(expected.SystemName, parsed.Public.System, "System Names (public) should be equal")
+		assert.Equal(expected.SystemName, parsed.Private.System.Name, "System Names (private) should be equal")
 
-		assert.Equal(parsed.Public.Department, expected.DepartmentName, "Department Names (public) should be equal")
-		assert.Equal(parsed.Private.Department, expected.DepartmentName, "Department Names (private) should be equal")
+		assert.Equal(expected.DepartmentName, parsed.Public.Department, "Department Names (public) should be equal")
+		assert.Equal(expected.DepartmentName, parsed.Private.Department, "Department Names (private) should be equal")
 
-		assert.Equal(parsed.Public.Channel, expected.ChannelName, "Channel Names (public) should be equal")
-		assert.Equal(parsed.Private.Channel, expected.ChannelName, "Channel Names (private) should be equal")
+		assert.Equal(expected.ChannelName, parsed.Public.Channel, "Channel Names (public) should be equal")
+		assert.Equal(expected.ChannelName, parsed.Private.Channel, "Channel Names (private) should be equal")
 
-		assert.Equal(parsed.Private.Site.Name, expected.SiteName, "Site Names (private) should be equal")
+		assert.Equal(expected.SiteName, parsed.Private.Site.Name, "Site Names (private) should be equal")
 
-		assert.Equal(parsed.Public.TGIDFreq, expected.TGID, "TGID (public) should be equal")
-		assert.Equal(parsed.Private.TGID, expected.TGID, "TGID (private) should be equal")
+		assert.Equal(expected.TGID, parsed.Public.TGIDFreq, "TGID (public) should be equal")
+		assert.Equal(expected.TGID, parsed.Private.TGID, "TGID (private) should be equal")
 
-		assert.Equal(parsed.Public.UnitID, expected.UnitID, "UnitID (public) should be equal")
-		assert.Equal(parsed.Private.UnitID, expected.UnitID, "UnitID (private) should be equal")
+		assert.Equal(expected.UnitID, parsed.Public.UnitID, "UnitID (public) should be equal")
+		assert.Equal(expected.UnitID, parsed.Private.UnitID, "UnitID (private) should be equal")
 
-		assert.Equal(parsed.Private.Location.Latitude, expected.Latitude, "Latitude (private) should be equal")
-		assert.Equal(parsed.Private.Location.Longitude, expected.Longitude, "Longitude (private) should be equal")
+		assert.Equal(expected.Latitude, parsed.Private.Location.Latitude, "Latitude (private) should be equal")
+		assert.Equal(expected.Longitude, parsed.Private.Location.Longitude, "Longitude (private) should be equal")
 	}
 }
